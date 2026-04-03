@@ -1,0 +1,16 @@
+{
+  "name": "OmniBudget",
+  "short_name": "OmniBudget",
+  "description": "Smart cross-platform budgeting with offline sync",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A192F",
+  "theme_color": "#0A192F",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

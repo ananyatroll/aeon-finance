@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+/* ============================================
+   Aeon Finance Design System
+   Architectural premium financial theme
+   ============================================ */
+
+@theme {
+  --color-primary: #031631;
+  --color-primary-container: #1b2f4a;
+  --color-on-primary: #ffffff;
+  
+  --color-secondary: #006c4f;
+  --color-secondary-container: #cdf9e1;
+  --color-on-secondary-container: #002116;
+  
+  --color-accent: #60fcc6;
+  --color-surface: #fbf9fb;
+  --color-surface-container-low: #f5f3f6;
+  --color-surface-container-high: #efedf0;
+  --color-surface-container-highest: #e4e2e5;
+  --color-surface-bright: #ffffff;
+  
+  --color-on-surface: #1b1b1e;
+  --color-on-surface-variant: #44474d;
+  
+  --color-outline: #75777e;
+  --color-outline-variant: #c4c6cf;
+  
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #410002;
+
+  --font-headline: "Manrope", sans-serif;
+  --font-body: "Inter", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-surface text-primary antialiased;
+    font-family: var(--font-body);
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6, .font-headline {
+    font-family: var(--font-headline);
+    @apply font-bold tracking-tight;
+  }
+
+  input, select, textarea {
+    @apply outline-none;
+  }
+}
+
+@layer components {
+  /* Material Symbols Configuration */
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'liga';
+  }
+
+  /* Prevent decorative phantoms globally */
+  .material-symbols-outlined::before,
+  .material-symbols-outlined::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  /* Architectural Glass */
+  .glass-morphism {
+    @apply bg-white/70 backdrop-blur-xl border border-white/20;
+    box-shadow: 0 8px 32px 0 rgba(3, 22, 49, 0.05);
+  }
+
+  .glass-morphism-dark {
+    @apply bg-primary/40 backdrop-blur-xl border border-white/10;
+  }
+
+  /* Tonal Nesting */
+  .surface-0 { @apply bg-surface; }
+  .surface-1 { @apply bg-surface-container-low; }
+  .surface-2 { @apply bg-surface-container-high; }
+  .surface-3 { @apply bg-surface-container-highest; }
+
+  /* Ghost Styles */
+  .ghost-border {
+    @apply border border-outline-variant/20 hover:border-outline-variant/50 transition-all;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-outline-variant/30 rounded-full hover:bg-outline-variant/50 transition-colors;
+  }
+}
+
+/* Animations */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Base Utility Overrides */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
