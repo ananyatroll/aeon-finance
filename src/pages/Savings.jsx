@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import db from '../db';
+import { useAuth } from '../contexts/AuthContext';
 import { useSavingsGoals, formatCurrency } from '../hooks';
 import BaseModal from '../components/ui/BaseModal';
 
 export default function Savings() {
-  const goals = useSavingsGoals();
+  const { user } = useAuth();
+  const goals = useSavingsGoals(user?.uid);
   const [showModal, setShowModal] = useState(false);
   const [editGoal, setEditGoal] = useState(null);
   const [showContribute, setShowContribute] = useState(null);

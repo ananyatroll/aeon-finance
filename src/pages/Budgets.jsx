@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, Cell } from 'recharts';
 import db from '../db';
-import { useAuth, useCategories, useTransactions, useSavingsGoals, formatCurrency, getSpendingByCategory } from '../hooks';
+import { useAuth } from '../contexts/AuthContext';
+import { useCategories, useTransactions, useSavingsGoals, formatCurrency, getSpendingByCategory } from '../hooks';
 import BaseModal from '../components/ui/BaseModal';
 
 export default function Budgets() {
